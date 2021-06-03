@@ -1,0 +1,151 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    </head>
+    <body>
+        <div id="amk">
+    <div class="container">
+    <div class="card">
+    <div class="header">
+        <h3 id="yarra" >Ayarlar<i class="fas fa-times-circle iconM"></i></h3>
+    </div>
+    <div class="body">
+        <p id="uyarı">i love you lrchie!</p>
+        <ul>
+        <li id="gpskapat"><i class="fas fa-home icon"></i> GPS Ayarları
+            <ul>
+                <li id="gpsacma"><i class="fas fa-pencil-alt icon"   ></i>GPS Aç</li>
+                <li id="gpskapama"><i class="fas fa-paper-plane icon" ></i> GPS Kapat</li>
+            </ul>
+        </li>
+        <li><i class="fas fa-underline icon"></i> Hud Seçenekleri
+            <ul>
+                <li id="hudaç"><i class="fas fa-pencil-alt icon"></i> Aç</li>
+                <li id="hudkapat"><i class="fas fa-paper-plane icon"></i> Kapat</li>
+            </ul>
+        </li>
+        <div> </div>
+        <li><i class="fas fa-boxes icon"></i> Blip Seçenekleri
+            <ul>
+                <li id="giyafet"><i class="fas fa-tshirt"></i> Kıyafetçi Blipleri</li>
+                <li id="tatto"><i class="fas fa-star-half-alt"></i> Dövmeci Blipleri</li>
+                <li id="barber"><i class="fas fa-cut"></i> Berber Blipleri</li>
+                <li id="benzin"><i class="fas fa-gas-pump"></i> Benzinlik</li>
+                <li id="banka"><i class="fas fa-university"></i> Banka Blipleri</li>
+                <li id="silah"><i class="fas fa-archive"></i> Ammunation Blipleri</li>
+            </ul>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  <script>  
+  var openedbenzin = false
+  var openedkiyafet = false
+  var openedtatto = false
+  var openedbanka = false
+  var openedsilah = false
+  var openedbarber = false
+          document.querySelector("#gpsacma").onclick = function() {
+    $.post('http://mbl_gps/gpsacma');
+    mesaj("Gps'i açtın.")
+ 
+};
+document.querySelector("#gpskapama").onclick = function() {
+    $.post('http://mbl_gps/gpskapama');
+    mesaj("GPS'i kapattın.")
+};
+
+document.querySelector("#hudaç").onclick = function() {
+    mesaj("Hudu açtın.")
+    $.post('http://mbl_gps/hudac');
+};
+document.querySelector("#hudkapat").onclick = function() {
+    mesaj("Hudu kapattın.")
+    $.post('http://mbl_gps/hudkapama');
+};
+document.querySelector("#yarra").onclick = function() {
+    mesaj("Kapandı.")
+    $.post('http://mbl_gps/kapat');
+};
+
+document.querySelector("#benzin").onclick = function() {
+    if ( openedbenzin == true) {
+        mesaj("Benzin bliplerini kapattın.")
+        openedbenzin = false
+    } else {
+        mesaj("Benzin bliplerini açtın.")
+        openedbenzin = true
+    }
+    
+    $.post('http://mbl_gps/blipbenzin');
+};
+document.querySelector("#silah").onclick = function() {
+    if ( openedbenzin == true) {
+        mesaj("Ammunation bliplerini kapattın.")
+        openedbenzin = false
+    } else {
+        mesaj("Ammunation bliplerini açtın.")
+        openedbenzin = true
+    }
+    $.post('http://mbl_gps/silah');
+};
+document.querySelector("#banka").onclick = function() {
+    if ( openedsilah == true) {
+        mesaj("Banka bliplerini kapattın.")
+        openedbenzin = false
+    } else {
+        mesaj("Banka bliplerini açtın.")
+        openedsilah = true
+    }
+    $.post('http://mbl_gps/banka');
+};
+document.querySelector("#tatto").onclick = function() {
+    if ( openedtatto == true) {
+        mesaj("Dövmeci bliplerini kapattın.")
+        openedtatto = false
+    } else {
+        mesaj("Dövmeci bliplerini açtın.")
+        openedtatto = true
+    }
+    $.post('http://mbl_gps/tatto');
+};
+document.querySelector("#barber").onclick = function() {
+    if ( openedbarber == true) {
+        mesaj("Berber bliplerini kapattın.")
+        openedbarber = false
+    } else {
+        mesaj("Berber bliplerini açtın.")
+        openedbarber = true
+    }
+    $.post('http://mbl_gps/barber');
+};
+document.querySelector("#giyafet").onclick = function() {
+    if ( openedkiyafet == true) {
+        mesaj("Kıyafetçi bliplerini kapattın.")
+        openedkiyafet = false
+    } else {
+        mesaj("Kıyafetçi bliplerini açtın.")
+        openedkiyafet = true
+    }
+    $.post('http://mbl_gps/giyafet');
+};
+
+function mesaj(text) { 
+        $("#uyarı").fadeIn(500);
+        document.getElementById("uyarı").innerHTML = text
+        setTimeout(() => {
+            $("#uyarı").fadeOut(500);
+        }, 3000);
+    }
+    </script>
+
+</body>
+</html>

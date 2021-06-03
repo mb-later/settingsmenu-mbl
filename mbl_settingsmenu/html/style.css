@@ -1,0 +1,94 @@
+.container {
+    padding: 50px;
+    display:none;
+
+}
+
+.card{
+    width: 300px;
+    height: 420px;
+    background-color: #b3b6b8;
+    border-radius: 10px 10px;
+}
+
+.header{
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    background-color: #6e0606;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    -ms-border-radius: 10px 10px 0px 0px;
+    -o-border-radius: 10px 10px 0px 0px;
+}
+
+h3{
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 1rem;
+}
+
+.iconM{
+    font-size: 18px;
+    margin-left: 170px;
+    color: #ebeff3;
+}
+
+#uyarı {
+    position: absolute;
+    min-width: 25%;
+    display: none;
+    top: 45%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+    z-index: 99;
+    left: 0%
+
+}
+
+.icon{
+    margin-right: 8px;
+}
+
+.body li{
+    transition: 1s all;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    padding: 15px;
+    margin-left: -40px;
+    margin-top: 0px;
+    color: rgb(10, 10, 10);
+    list-style: none;
+    display: block;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+}
+
+li:hover{
+    transition: 1s all;
+    color: #da1d1d;
+    background-color: rgba(212, 206, 205, 0.82);
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    cursor: pointer;
+}
+
+.body > li{
+    float: left;
+}
+
+.body li ul{
+    background: #e9e4e4;
+    margin-left: 280px;
+    margin-top: -38px;
+    display: none;
+    position: absolute;
+    border-top-right-radius: 15px 15px;
+    border-bottom-right-radius: 15px 15px;
+}
+
+.body li:hover > ul{
+    display: block;
+    cursor: pointer;
+}
